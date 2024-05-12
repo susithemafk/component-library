@@ -1,0 +1,42 @@
+{
+    "name": "@susithemafk/component-library",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "files": [
+        "dist"
+    ],
+    "main": "./dist/component-library.umd.cjs",
+    "module": "./dist/component-library.js",
+    "exports": {
+        ".": {
+            "import": "./dist/component-library.js",
+            "require": "./dist/component-library.umd.cjs"
+        }
+    },
+    "scripts": {
+        "dev": "vite",
+        "build": "npm run clean && tsc && vite build",
+        "clean": "rm -rf dist",
+        "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+        "preview": "vite preview",
+        "publish": "npm run build && npm publish --access public"
+    },
+    "dependencies": {
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0"
+    },
+    "devDependencies": {
+        "@types/node": "^20.12.11",
+        "@types/react": "^18.2.66",
+        "@types/react-dom": "^18.2.22",
+        "@typescript-eslint/eslint-plugin": "^7.2.0",
+        "@typescript-eslint/parser": "^7.2.0",
+        "@vitejs/plugin-react": "^4.2.1",
+        "eslint": "^8.57.0",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-react-refresh": "^0.4.6",
+        "typescript": "^5.2.2",
+        "vite": "^5.2.0"
+    }
+}
