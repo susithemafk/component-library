@@ -1,12 +1,20 @@
-import { useState } from "react"
-import { Button } from "component-library"
+import { useState } from 'react'
+import { Button } from 'component-library'
 
 function App() {
     const [count, setCount] = useState(0)
 
     return (
         <>
-            <Button>abc</Button>
+            <Button size="small" variant="primary">
+                small
+            </Button>
+            <Button size="medium" variant="secondary" rounded={true}>
+                medium
+            </Button>
+            <Button size="large" variant="dark" disabled={true} loading={true}>
+                large
+            </Button>
             <div>
                 <a href="https://vitejs.dev" target="_blank"></a>
                 <a href="https://react.dev" target="_blank"></a>
