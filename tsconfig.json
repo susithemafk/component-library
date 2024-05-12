@@ -27,6 +27,6 @@
             "component-library": ["./lib/main.ts"] // have to also add to vite.config.ts, or install vite-tsconfig-paths
         }
     },
-    "include": ["src"],
+    "include": ["src", "lib"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }

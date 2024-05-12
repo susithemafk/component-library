@@ -1,3 +1,3 @@
-import "../src/style.css"
+import "../src/styles/main.scss"
 
 export { Button } from "./Button/Button"

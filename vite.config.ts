@@ -1,6 +1,7 @@
 import { defineConfig } from "vite"
 import react from "@vitejs/plugin-react"
 import { resolve } from "path"
+import dts from "vite-plugin-dts"
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -9,7 +10,15 @@ export default defineConfig({
             "component-library": resolve(__dirname, "./lib/main.ts"),
         },
     },
-    plugins: [react()],
+    plugins: [
+        react(),
+        dts({
+            rollupTypes: false,
+            include: ["./lib/**/*.ts", "./lib/**/*.tsx"],
+            exclude: ["**/*.stories.tsx"],
+            insertTypesEntry: true,
+        }),
+    ],
     build: {
         lib: {
             // input and output
