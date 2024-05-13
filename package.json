@@ -1,6 +1,6 @@
 {
     "name": "@susithemafk/component-library",
-    "version": "0.0.22",
+    "version": "0.0.23",
     "type": "module",
     "files": [
         "dist"
@@ -46,7 +46,7 @@
         "@storybook/react-vite": "^8.0.10",
         "@storybook/test": "^8.0.10",
         "@types/node": "^20.12.11",
-        "@types/react": "^18.2.66",
+        "@types/react": "^18.2.25",
         "@types/react-dom": "^18.2.22",
         "@typescript-eslint/eslint-plugin": "^7.2.0",
         "@typescript-eslint/parser": "^7.2.0",

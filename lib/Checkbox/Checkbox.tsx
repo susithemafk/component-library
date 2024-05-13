@@ -2,11 +2,12 @@ import React, { useState } from 'react'
 import './Checkbox.scss'
 
 export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
-    label?: React.ReactNode
+    label?: React.ReactNode | string
     variant?: 'primary' | 'secondary' | 'dark'
     checked?: boolean
     cbSize?: 'small' | 'medium' | 'large'
     reversed?: boolean
+    disabled?: boolean
     className?: string
 }
 
@@ -17,6 +18,7 @@ export const Checkbox = (props: CheckboxProps): JSX.Element => {
         checked = false,
         cbSize = 'medium',
         reversed = false,
+        disabled,
         className,
         ...restProps
     } = props
@@ -38,10 +40,11 @@ export const Checkbox = (props: CheckboxProps): JSX.Element => {
                 checked={isChecked}
                 onChange={() => setIsChecked((prev) => !prev)}
                 defaultChecked={checked}
+                disabled={disabled}
                 className="checkbox__input"
                 {...restProps}
             />
-            <span className="checkbox__label">{label}</span>
+            {label && <span className="checkbox__label">{label}</span>}
         </label>
     )
 }

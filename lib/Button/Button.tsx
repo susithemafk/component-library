@@ -46,7 +46,8 @@ export const Button = (props: ButtonProps): JSX.Element => {
                 className={getClassName()}
                 disabled={disabled}
                 onClick={!disabled ? onClick : () => console.log('disabled')}>
-                {loading ? <div className="scl-loader"></div> : children}
+                {!loading && children}
+                {loading && <div className="scl-loader"></div>}
             </button>
         </>
     )

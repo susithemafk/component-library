@@ -1,4 +1,4 @@
-import { Button, Checkbox } from 'component-library'
+import { Button, Input } from 'component-library'
 import useDarkMode from './hooks/useDarkMode'
 // import Buttons from './components/Buttons'
 
@@ -17,6 +17,7 @@ function App() {
             </Button>
 
             {/* <Buttons /> */}
+            <Input label="label" placeholder="placeholder" inputSize="medium" disabled={false} />
         </>
     )
 }

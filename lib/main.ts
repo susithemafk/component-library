@@ -9,3 +9,6 @@ export type { ButtonProps } from './Button/Button'
 
 export { Checkbox } from './Checkbox/Checkbox'
 export type { CheckboxProps } from './Checkbox/Checkbox'
+
+export { Input } from './Input/Input'
+export type { InputProps } from './Input/Input'
