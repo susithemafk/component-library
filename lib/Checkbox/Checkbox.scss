@@ -1,0 +1,96 @@
+/**
+  * Variants
+  */
+$checkbox-variants: (primary, secondary, dark);
+@each $variant in $checkbox-variants {
+    .checkbox-#{$variant} {
+        --checkbox-color: var(--#{$variant}-color);
+        --checked-color: var(--#{$variant}-text-color-bg);
+        --checkbox-focus-color: var(--focus-#{$variant}-color);
+    }
+}
+
+/**
+  * Sizes
+  */
+$checkbox-sizes: (small, medium, large);
+@each $size in $checkbox-sizes {
+    .checkbox-size-#{$size} {
+        --checkbox-check-size: calc(var(--font-size-#{$size}) * 1.12);
+        --checkbox-size: calc(var(--font-size-#{$size}) * 1.5);
+        --checkbox-font-size: var(--font-size-#{$size});
+        --checkbox-border-radius: var(--border-radius-#{$size});
+    }
+}
+
+/**
+  * Checkbox component
+  */
+.checkbox {
+    cursor: pointer;
+    display: flex;
+    gap: 0.5rem;
+    width: max-content;
+    align-items: center;
+    font-size: var(--checkbox-font-size);
+
+    &__input {
+        -webkit-appearance: none;
+        appearance: none;
+        border-radius: var(--checkbox-border-radius);
+        width: var(--checkbox-size);
+        height: var(--checkbox-size);
+        padding: 0;
+        margin: 0;
+        border: 0.15em solid var(--checkbox-color);
+        outline: none;
+        cursor: pointer;
+        transition:
+            background-color 0.2s,
+            box-shadow 0.15s;
+
+        &:checked {
+            background-color: var(--checkbox-color);
+            position: relative;
+            display: grid;
+            place-items: center;
+        }
+
+        // Cross icon
+        &:checked::before {
+            content: '\2715';
+            color: var(--checked-color);
+            position: absolute;
+            line-height: 0;
+            font-size: var(--checkbox-check-size);
+        }
+
+        // Focus input
+        &:focus {
+            box-shadow: var(--checkbox-focus-color) var(--focus-outline);
+        }
+
+        // Disabled
+        &:disabled {
+            opacity: var(--disabled-opacity);
+            cursor: not-allowed;
+
+            & + .checkbox__label {
+                opacity: var(--disabled-opacity);
+            }
+        }
+    }
+
+    &__label {
+        color: var(--primary-text-color);
+    }
+
+    &.checkbox-reversed {
+        .checkbox__input {
+            order: 2;
+        }
+        .checkbox__label {
+            order: 1;
+        }
+    }
+}

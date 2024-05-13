@@ -6,3 +6,6 @@ import '../src/styles/main.scss'
 
 export { Button } from './Button/Button'
 export type { ButtonProps } from './Button/Button'
+
+export { Checkbox } from './Checkbox/Checkbox'
+export type { CheckboxProps } from './Checkbox/Checkbox'

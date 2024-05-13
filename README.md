@@ -2,3 +2,4 @@
 
 ### todo
 - dark mode barvy
+- button s ikonou

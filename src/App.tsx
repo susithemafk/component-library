@@ -1,6 +1,6 @@
-import { Button } from 'component-library'
+import { Button, Checkbox } from 'component-library'
 import useDarkMode from './hooks/useDarkMode'
-import Buttons from './components/Buttons'
+// import Buttons from './components/Buttons'
 
 function App() {
     const { toggleDarkMode } = useDarkMode()
@@ -16,7 +16,7 @@ function App() {
                 toggle dark mode
             </Button>
 
-            <Buttons />
+            {/* <Buttons /> */}
         </>
     )
 }

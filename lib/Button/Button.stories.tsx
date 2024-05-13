@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { Button } from './Button'
 import '../../src/styles/main.scss'
-import { capitalize } from 'vue'
 
 const meta: Meta<typeof Button> = {
     title: 'Button',
@@ -14,7 +13,6 @@ type Story = StoryObj<typeof Button>
 export const Default: Story = {
     args: {
         children: 'Default button',
-
     },
 }
 

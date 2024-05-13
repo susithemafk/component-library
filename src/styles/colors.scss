@@ -3,9 +3,13 @@
     --secondary-color: #bab5fc;
     --dark-color: #111111;
 
-    --primary-text-color: #ffffff;
+    --primary-text-color: #111111;
     --secondary-text-color: #4e46b4;
     --dark-text-color: #b3b5b8;
+
+    --primary-text-color-bg: #ffffff;
+    --secondary-text-color-bg: #4e46b4;
+    --dark-text-color-bg: #b3b5b8;
 
     --background-primary-color: #4e46b4;
     --background-secondary-color: #e7e6ff;
@@ -14,6 +18,10 @@
     --background-hover-primary-color: #{darken(#4e46b4, 10%)};
     --background-hover-secondary-color: #{darken(#e7e6ff, 2%)};
     --background-hover-dark-color: #{lighten(#111111, 16%)};
+
+    --focus-primary-color: #{lighten(#4e46b4, 40%)};
+    --focus-secondary-color: #{darken(#e7e6ff, 2%)};
+    --focus-dark-color: #{lighten(#111111, 70%)};
 
     --background: #f9f9f9;
 
@@ -25,7 +33,10 @@
     --padding-medium: 0.5rem;
     --padding-large: 0.75rem;
 
-    --border-radius: 1rem;
+    --border-radius-small: 0.15rem;
+    --border-radius-medium: 0.25rem;
+    --border-radius-large: 0.3rem;
+    --border-radius: 0.5rem;
 
     --disabled-opacity: 0.5;
 
@@ -40,7 +51,7 @@
 
     --transition-duration: 0.3s;
 
-    --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+    --focus-outline: 0 0 2px 2px;
 }
 
 [data-theme='dark'] {

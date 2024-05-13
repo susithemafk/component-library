@@ -15,11 +15,17 @@
 $btn-variants: (primary, secondary, dark);
 @each $variant in $btn-variants {
     .btn-#{$variant} {
-        color: var(--#{$variant}-text-color);
+        color: var(--#{$variant}-text-color-bg);
         background-color: var(--background-#{$variant}-color);
 
         &:hover {
             background-color: var(--background-hover-#{$variant}-color);
+        }
+        /**
+        * Spinner for loading #classes.scss
+        */
+        .scl-loader {
+            border-color: var(--#{$variant}-text-color-bg);
         }
     }
 }
