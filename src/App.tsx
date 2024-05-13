@@ -1,32 +1,22 @@
-import { useState } from 'react'
 import { Button } from 'component-library'
+import useDarkMode from './hooks/useDarkMode'
+import Buttons from './components/Buttons'
 
 function App() {
-    const [count, setCount] = useState(0)
+    const { toggleDarkMode } = useDarkMode()
 
     return (
         <>
-            <Button size="small" variant="primary">
-                small
+            <Button
+                size="large"
+                variant="dark"
+                disabled={false}
+                loading={false}
+                onClick={() => toggleDarkMode()}>
+                toggle dark mode
             </Button>
-            <Button size="medium" variant="secondary" rounded={true}>
-                medium
-            </Button>
-            <Button size="large" variant="dark" disabled={true} loading={true}>
-                large
-            </Button>
-            <div>
-                <a href="https://vitejs.dev" target="_blank"></a>
-                <a href="https://react.dev" target="_blank"></a>
-            </div>
-            <h1>Vite + React</h1>
-            <div className="card">
-                <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-                <p>
-                    Edit <code>src/App.tsx</code> and save to test HMR
-                </p>
-            </div>
-            <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
+
+            <Buttons />
         </>
     )
 }

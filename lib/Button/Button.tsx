@@ -1,7 +1,7 @@
 import React from 'react'
 import './Button.scss'
 
-interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     children: React.ReactNode
     className?: string
     variant?: 'primary' | 'secondary' | 'dark'
@@ -9,7 +9,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     rounded?: boolean
     disabled?: boolean
     loading?: boolean
-    onClick?: () => void
+    onClick?: (...args: any[]) => any
 }
 
 export const Button = (props: ButtonProps): JSX.Element => {
@@ -42,15 +42,11 @@ export const Button = (props: ButtonProps): JSX.Element => {
 
     return (
         <>
-            <button className={getClassName()} disabled={disabled} onClick={onClick}>
-                {loading ? (
-                    <span
-                        className="spinner-border spinner-border-sm"
-                        role="status"
-                        aria-hidden="true"></span>
-                ) : (
-                    children
-                )}
+            <button
+                className={getClassName()}
+                disabled={disabled}
+                onClick={!disabled ? onClick : () => console.log('disabled')}>
+                {loading ? <div className="scl-loader"></div> : children}
             </button>
         </>
     )

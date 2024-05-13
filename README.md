@@ -1,4 +1,4 @@
 # susithemafk knihovna komponent
 
 ### todo
-- button loader
+- dark mode barvy

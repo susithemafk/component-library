@@ -12,28 +12,14 @@
 /**
  * Variants
  */
-$btn-variants: (
-    primary: (
-        color: white,
-        background-color: red,
-    ),
-    secondary: (
-        color: white,
-        background-color: blue,
-    ),
-    dark: (
-        color: white,
-        background-color: black,
-    ),
-);
-
-@each $variant, $colors in $btn-variants {
+$btn-variants: (primary, secondary, dark);
+@each $variant in $btn-variants {
     .btn-#{$variant} {
-        color: map-get($colors, color);
-        background-color: map-get($colors, background-color);
+        color: var(--#{$variant}-text-color);
+        background-color: var(--background-#{$variant}-color);
 
         &:hover {
-            background-color: darken(map-get($colors, background-color), 10%);
+            background-color: var(--background-hover-#{$variant}-color);
         }
     }
 }
@@ -41,15 +27,11 @@ $btn-variants: (
 /**
  * Sizes
  */
-$btn-sizes: (
-    small: 0.75rem,
-    medium: 1rem,
-    large: 1.5rem,
-);
-@each $size, $value in $btn-sizes {
+$btn-sizes: (small, medium, large);
+@each $size in $btn-sizes {
     .btn-size-#{$size} {
-        font-size: $value;
-        padding: $value * 0.5 $value;
+        font-size: var(--font-size-#{$size});
+        padding: var(--padding-#{$size}) calc(var(--padding-#{$size}) * 2);
     }
 }
 

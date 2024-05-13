@@ -1,0 +1,64 @@
+:root {
+    --primary-color: #4e46b4;
+    --secondary-color: #bab5fc;
+    --dark-color: #111111;
+
+    --primary-text-color: #ffffff;
+    --secondary-text-color: #4e46b4;
+    --dark-text-color: #b3b5b8;
+
+    --background-primary-color: #4e46b4;
+    --background-secondary-color: #e7e6ff;
+    --background-dark-color: #111111;
+
+    --background-hover-primary-color: #{darken(#4e46b4, 10%)};
+    --background-hover-secondary-color: #{darken(#e7e6ff, 2%)};
+    --background-hover-dark-color: #{lighten(#111111, 16%)};
+
+    --background: #f9f9f9;
+
+    --font-size-small: 0.75rem;
+    --font-size-medium: 1rem;
+    --font-size-large: 1.5rem;
+
+    --padding-small: 0.375rem;
+    --padding-medium: 0.5rem;
+    --padding-large: 0.75rem;
+
+    --border-radius: 1rem;
+
+    --disabled-opacity: 0.5;
+
+    --font-family: 'Roboto', sans-serif;
+
+    --font-weight-light: 300;
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
+
+    --line-height: 1.5;
+
+    --transition-duration: 0.3s;
+
+    --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+[data-theme='dark'] {
+    --primary-color: #4e46b4;
+    --secondary-color: #bab5fc;
+    --dark-color: #111111;
+
+    --primary-text-color: #ffffff;
+    --secondary-text-color: #4e46b4;
+    --dark-text-color: #b3b5b8;
+
+    --background-primary-color: red;
+    --background-secondary-color: #e7e6ff;
+    --background-dark-color: #111111;
+
+    --background-hover-primary-color: #{darken(#4e46b4, 10%)};
+    --background-hover-secondary-color: #{darken(#e7e6ff, 2%)};
+    --background-hover-dark-color: #{lighten(#111111, 16%)};
+
+    --background: #1b1b1b;
+}
