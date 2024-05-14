@@ -38,21 +38,20 @@ export const Input = (props: InputProps): JSX.Element => {
 
     return (
         <div className={`input ${getClassName()}`}>
-            {label && (
-                <label className="input__label" htmlFor={id}>
-                    {label}
-                </label>
-            )}
-            <input
-                type="text"
-                id={id}
-                value={value}
-                onChange={(e) => setValue(e.target.value)}
-                disabled={disabled}
-                className="input__input"
-                placeholder={placeholder}
-                {...restProps}
-            />
+            <label className="input__label" htmlFor={id}>
+                {label}
+                <input
+                    type="text"
+                    id={id}
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
+                    disabled={disabled}
+                    className="input__input"
+                    aria-label={id} // dulezity pokud je label prazdny
+                    placeholder={placeholder}
+                    {...restProps}
+                />
+            </label>
         </div>
     )
 }
