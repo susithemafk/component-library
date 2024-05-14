@@ -1,4 +1,28 @@
 /**
+ * Variants
+ */
+.btn-primary {
+    --color: var(--color-primary-button-text);
+    --background-color: var(--color-primary);
+    --background-color-hover: var(--color-primary-dark);
+    --focus-shadow: var(--color-primary-shadow);
+}
+
+.btn-secondary {
+    --color: var(--color-secondary-button-text);
+    --background-color: var(--color-secondary-light);
+    --background-color-hover: var(--color-secondary);
+    --focus-shadow: var(--color-secondary-shadow);
+}
+
+.btn-dark {
+    --color: var(--color-dark-button-text);
+    --background-color: var(--color-dark);
+    --background-color-hover: var(--color-dark-light);
+    --focus-shadow: var(--color-dark-shadow);
+}
+
+/**
   * Button component
   */
 .btn {
@@ -6,27 +30,23 @@
     padding: 0.5rem 1rem;
     border-radius: 0.2rem;
     cursor: pointer;
-    transition: background-color 0.3s;
-}
+    transition:
+        background-color 0.3s,
+        box-shadow 0.2s;
 
-/**
- * Variants
- */
-$btn-variants: (primary, secondary, dark);
-@each $variant in $btn-variants {
-    .btn-#{$variant} {
-        color: var(--#{$variant}-text-color-bg);
-        background-color: var(--background-#{$variant}-color);
+    color: (var(--color));
+    background-color: var(--background-color);
 
-        &:hover {
-            background-color: var(--background-hover-#{$variant}-color);
-        }
-        /**
-        * Spinner for loading #classes.scss
-        */
-        .scl-loader {
-            border-color: var(--#{$variant}-text-color-bg);
-        }
+    &:hover {
+        background-color: var(--background-color-hover);
+    }
+
+    &:focus {
+        box-shadow: var(--focus-shadow) var(--focus-outline);
+    }
+
+    .scl-loader {
+        border-color: var(--color);
     }
 }
 
@@ -42,7 +62,7 @@ $btn-sizes: (small, medium, large);
 }
 
 /**
- * Rounded?
+ * Rounded
  */
 .btn-rounded {
     border-radius: 1rem;

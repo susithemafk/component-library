@@ -1,13 +1,22 @@
 /**
   * Variants
   */
-$checkbox-variants: (primary, secondary, dark);
-@each $variant in $checkbox-variants {
-    .checkbox-#{$variant} {
-        --checkbox-color: var(--#{$variant}-color);
-        --checked-color: var(--#{$variant}-text-color-bg);
-        --checkbox-focus-color: var(--focus-#{$variant}-color);
-    }
+.checkbox-primary {
+    --checked-icon-color: var(--color-primary-button-text); // X icon color
+    --border-color: var(--color-primary); // border | background of checkbox
+    --focus-color: var(--color-primary-shadow); // focus color
+}
+
+.checkbox-secondary {
+    --checked-icon-color: var(--color-primary); // X icon color
+    --border-color: var(--color-secondary-light); // border | background of checkboxor
+    --focus-color: var(--color-secondary-shadow); // focus color
+}
+
+.checkbox-dark {
+    --checked-icon-color: var(--color-dark-button-text); // X icon color
+    --border-color: var(--color-dark); // border | background of checkbox
+    --focus-color: var(--color-dark-shadow); // focus color
 }
 
 /**
@@ -42,7 +51,7 @@ $checkbox-sizes: (small, medium, large);
         height: var(--checkbox-size);
         padding: 0;
         margin: 0;
-        border: 0.15em solid var(--checkbox-color);
+        border: 0.15em solid var(--border-color);
         outline: none;
         cursor: pointer;
         transition:
@@ -50,7 +59,7 @@ $checkbox-sizes: (small, medium, large);
             box-shadow 0.15s;
 
         &:checked {
-            background-color: var(--checkbox-color);
+            background-color: var(--border-color);
             position: relative;
             display: grid;
             place-items: center;
@@ -59,7 +68,7 @@ $checkbox-sizes: (small, medium, large);
         // Cross icon
         &:checked::before {
             content: '\2715';
-            color: var(--checked-color);
+            color: var(--checked-icon-color);
             position: absolute;
             line-height: 0;
             font-size: var(--checkbox-check-size);
@@ -67,7 +76,7 @@ $checkbox-sizes: (small, medium, large);
 
         // Focus input
         &:focus {
-            box-shadow: var(--checkbox-focus-color) var(--focus-outline);
+            box-shadow: var(--focus-color) var(--focus-outline);
         }
 
         // Disabled
@@ -76,13 +85,14 @@ $checkbox-sizes: (small, medium, large);
             cursor: not-allowed;
 
             & + .checkbox__label {
+                // sibling selector for label
                 opacity: var(--disabled-opacity);
             }
         }
     }
 
     &__label {
-        color: var(--primary-text-color);
+        color: var(--color-text-black-white);
     }
 
     &.checkbox-reversed {

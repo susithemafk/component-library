@@ -32,10 +32,10 @@
     }
 
     &-shadow {
-        box-shadow: var(--focus-primary-color) var(--focus-outline);
+        box-shadow: var(--color-primary-shadow) var(--focus-outline);
     }
 
     &-border {
-        border: var(--border-width) solid var(--primary-color);
+        border: var(--border-width) solid var(--color-primary);
     }
 }
