@@ -1,7 +1,8 @@
-import React from 'react'
+import { Button as RadixButton, ButtonProps as RadixButtonProps, Theme } from '@radix-ui/themes'
 import './Button.scss'
+import { Responsive } from '@radix-ui/themes/props'
 
-export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends Omit<RadixButtonProps, 'variant' | 'size' | 'color'> {
     children: React.ReactNode
     className?: string
     variant?: 'primary' | 'secondary' | 'dark'
@@ -13,42 +14,56 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
 }
 
 export const Button = (props: ButtonProps): JSX.Element => {
-    /**
-     * destructure props
-     */
+    console.log(props)
+
     const {
-        children,
-        className,
         variant = 'primary',
+        className,
         size = 'medium',
-        rounded = false,
+        children,
+        rounded,
         disabled,
         loading,
         onClick,
+        ...restProps
     } = props
 
-    /**
-     * create a class string from props
-     * @returns string
-     */
+    const getSize = (
+        size: 'small' | 'medium' | 'large' | undefined
+    ): Responsive<'1' | '2' | '3' | '4'> | undefined => {
+        switch (size) {
+            case 'small':
+                return '1'
+            case 'medium':
+                return '3'
+            case 'large':
+                return '4'
+            default:
+                return '3'
+        }
+    }
+
     const getClassName = () => {
         const c = ['btn']
         if (variant) c.push(`btn-${variant}`)
-        if (size) c.push(`btn-size-${size}`)
-        if (rounded) c.push(`btn-rounded`)
         if (className) c.push(className)
         return c.join(' ')
     }
 
+    console.log(getSize(size), typeof getSize(size))
+
     return (
-        <>
-            <button
+        <Theme>
+            <RadixButton
+                onClick={onClick}
                 className={getClassName()}
+                size={getSize(size)}
+                radius={rounded ? 'medium' : undefined}
                 disabled={disabled}
-                onClick={!disabled ? onClick : () => console.log('disabled')}>
-                {!loading && children}
-                {loading && <div className="scl-loader"></div>}
-            </button>
-        </>
+                loading={loading}
+                {...restProps}>
+                {children}
+            </RadixButton>
+        </Theme>
     )
 }

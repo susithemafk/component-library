@@ -4,11 +4,10 @@
  */
 import '../src/styles/main.scss'
 
-export { Button } from './Button/Button'
-export type { ButtonProps } from './Button/Button'
+export { ButtonOld } from './ButtonOld/ButtonOld'
+export type { ButtonOldProps } from './ButtonOld/ButtonOld'
 
 export { Checkbox } from './Checkbox/Checkbox'
 export type { CheckboxProps } from './Checkbox/Checkbox'
 
-export { Input } from './Input/Input'
-export type { InputProps } from './Input/Input'
+export { Button } from './Button/Button'

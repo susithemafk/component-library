@@ -1,0 +1,57 @@
+/**
+  * Button component
+  */
+.btn {
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/**
+ * Variants
+ */
+$btn-variants: (primary, secondary, dark);
+@each $variant in $btn-variants {
+    .btn-#{$variant} {
+        color: var(--#{$variant}-text-color-bg);
+        background-color: var(--background-#{$variant}-color);
+
+        &:hover {
+            background-color: var(--background-hover-#{$variant}-color);
+        }
+        /**
+        * Spinner for loading #classes.scss
+        */
+        .scl-loader {
+            border-color: var(--#{$variant}-text-color-bg);
+        }
+    }
+}
+
+/**
+ * Sizes
+ */
+$btn-sizes: (small, medium, large);
+@each $size in $btn-sizes {
+    .btn-size-#{$size} {
+        font-size: var(--font-size-#{$size});
+        padding: var(--padding-#{$size}) calc(var(--padding-#{$size}) * 2);
+    }
+}
+
+/**
+ * Rounded?
+ */
+.btn-rounded {
+    border-radius: 1rem;
+}
+
+/**
+ * Disabled
+ */
+.btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}

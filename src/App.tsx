@@ -1,23 +1,25 @@
-import { Button, Input } from 'component-library'
+import { ButtonOld, Button } from 'component-library'
 import useDarkMode from './hooks/useDarkMode'
 // import Buttons from './components/Buttons'
+import { Theme } from '@radix-ui/themes'
 
 function App() {
     const { toggleDarkMode } = useDarkMode()
 
     return (
         <>
-            <Button
+            <ButtonOld
                 size="large"
                 variant="dark"
                 disabled={false}
                 loading={false}
                 onClick={() => toggleDarkMode()}>
                 toggle dark mode
-            </Button>
+            </ButtonOld>
 
-            {/* <Buttons /> */}
-            <Input label="label" placeholder="placeholder" inputSize="medium" disabled={false} />
+            <Button variant="primary" size="small">ahoj</Button>
+            <Button variant="primary" size="medium">ahoj</Button>
+            <Button variant="primary" size="large">ahojaa</Button>
         </>
     )
 }
