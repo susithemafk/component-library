@@ -1,0 +1,41 @@
+.avatar {
+    display: inline-block;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &-size-small {
+        width: var(--avatar-small);
+        height: var(--avatar-small);
+    }
+
+    &-size-medium {
+        width: var(--avatar-medium);
+        height: var(--avatar-medium);
+    }
+
+    &-size-large {
+        width: var(--avatar-large);
+        height: var(--avatar-large);
+    }
+
+    &-shape-circle {
+        border-radius: 50%;
+    }
+
+    &-shape-square {
+        border-radius: 0;
+    }
+
+    &-shadow {
+        box-shadow: var(--focus-primary-color) var(--focus-outline);
+    }
+
+    &-border {
+        border: var(--border-width) solid var(--primary-color);
+    }
+}

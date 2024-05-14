@@ -12,3 +12,6 @@ export type { CheckboxProps } from './Checkbox/Checkbox'
 
 export { Input } from './Input/Input'
 export type { InputProps } from './Input/Input'
+
+export { Avatar } from './Avatar/Avatar'
+export type { AvatarProps } from './Avatar/Avatar'
