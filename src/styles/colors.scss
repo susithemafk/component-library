@@ -7,6 +7,8 @@
     --secondary-text-color: #4e46b4;
     --dark-text-color: #b3b5b8;
 
+    --placeholder-color: #b3b5b8;
+
     --primary-text-color-bg: #ffffff;
     --secondary-text-color-bg: #4e46b4;
     --dark-text-color-bg: #b3b5b8;
@@ -24,34 +26,6 @@
     --focus-dark-color: #{lighten(#111111, 70%)};
 
     --background: #f9f9f9;
-
-    --font-size-small: 0.75rem;
-    --font-size-medium: 1rem;
-    --font-size-large: 1.5rem;
-
-    --padding-small: 0.375rem;
-    --padding-medium: 0.5rem;
-    --padding-large: 0.75rem;
-
-    --border-radius-small: 0.15rem;
-    --border-radius-medium: 0.25rem;
-    --border-radius-large: 0.3rem;
-    --border-radius: 0.5rem;
-
-    --disabled-opacity: 0.5;
-
-    --font-family: 'Roboto', sans-serif;
-
-    --font-weight-light: 300;
-    --font-weight-regular: 400;
-    --font-weight-medium: 500;
-    --font-weight-bold: 700;
-
-    --line-height: 1.5;
-
-    --transition-duration: 0.3s;
-
-    --focus-outline: 0 0 2px 2px;
 }
 
 [data-theme='dark'] {

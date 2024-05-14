@@ -1,0 +1,63 @@
+/**
+  * Variants
+  */
+
+$input-variants: (primary, secondary, dark);
+@each $variant in $input-variants {
+    .input-#{$variant} {
+        --label-color: var(--primary-text-color); // label text | all same
+        --input-color: var(--primary-text-color); // input text | all same
+        --input-border-color: var(--#{$variant}-color); // input border
+        --input-focus-border-color: var(--focus-#{$variant}-color); // input border on focus
+    }
+}
+
+/**
+  * Sizes
+  */
+
+$input-sizes: (small, medium, large);
+@each $size in $input-sizes {
+    .input-size-#{$size} {
+        --input-font-size: var(--font-size-#{$size});
+        --input-padding: var(--padding-#{$size});
+        --input-border-radius: var(--border-radius-#{$size});
+    }
+}
+
+.input {
+    display: flex;
+    align-items: center;
+    gap: calc(var(--input-padding) * 1);
+
+    &__input {
+        color: var(--input-color);
+        border: var(--border-width) solid var(--input-border-color);
+        outline: none;
+        padding: calc(var(--input-padding) * 0.75) calc(var(--input-padding) * 1.25);
+        border-radius: var(--input-border-radius);
+        font-size: var(--input-font-size);
+
+        &:focus {
+            box-shadow: var(--input-focus-border-color) var(--focus-outline);
+        }
+    }
+    &__label {
+        color: var(--label-color);
+        font-size: var(--input-font-size);
+    }
+
+    ::placeholder {
+        color: var(--placeholder-color);
+    }
+
+    &--label-up {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: calc(var(--input-padding) * 0.25);
+
+        .input__label {
+            margin-left: calc(var(--input-padding) * 1.25);
+        }
+    }
+}
