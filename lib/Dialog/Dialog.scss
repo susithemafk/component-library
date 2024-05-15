@@ -25,7 +25,7 @@
     }
 
     &__content {
-        background-color: white;
+        background-color: var(--color-background-light);
         border-radius: 8px;
         box-shadow: var(--box-shadow);
         padding: calc(var(--padding-large) * 2);

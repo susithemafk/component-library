@@ -1,0 +1,107 @@
+/**
+  * Variants
+  */
+$switch-variants: (primary, secondary, dark);
+@each $variant in $switch-variants {
+    .switch-#{$variant} {
+        --slider-dot-color: var(--color-#{$variant}-button-text);
+        --container-color-checked: var(--color-#{$variant});
+        --focus-shadow: var(--color-#{$variant}-shadow);
+    }
+}
+
+/**
+  * Sizes
+  */
+$switch-sizes: (small, medium, large);
+@each $size in $switch-sizes {
+    .switch-size-#{$size} {
+        --switch-width: var(--switch-width-#{$size});
+        --switch-height: var(--switch-height-#{$size});
+        --switch-from: 4px;
+        --switch-to: calc(var(--switch-width-#{$size}) / 2);
+    }
+}
+
+.switch {
+    &-primary {
+        --container-color-unchecked: var(--color-primary-light);
+    }
+    &-secondary {
+        --container-color-unchecked: var(--color-secondary-light);
+    }
+    &-dark {
+        --container-color-unchecked: var(--color-dark-light);
+    }
+
+    position: relative;
+    display: inline-block;
+    width: var(--switch-width);
+    height: var(--switch-height);
+
+    // Hide default checkbox
+    &__input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+
+    // Container
+    &__slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--container-color-unchecked);
+        -webkit-transition: background-color 0.15s;
+        transition: background-color 0.15s;
+
+        // Slider dot
+        &:before {
+            position: absolute;
+            content: '';
+            height: calc(var(--switch-height) * 0.75);
+            width: calc(var(--switch-height) * 0.75);
+            left: 0;
+            top: 50%;
+            transform: translate(var(--switch-from), -50%);
+            background-color: var(--slider-dot-color);
+            -webkit-transition: 0.3s;
+            transition: 0.3s;
+        }
+    }
+
+    // Container when checked
+    &__input:checked + &__slider {
+        background-color: var(--container-color-checked);
+    }
+
+    // Container when focused
+    &__input:focus + &__slider {
+        box-shadow: var(--focus-outline) var(--focus-shadow);
+    }
+
+    // Slider dot when checked
+    &__input:checked + &__slider:before {
+        -webkit-transform: translate(var(--switch-to), -50%);
+        -ms-transform: translate(var(--switch-to), -50%);
+        transform: translate(var(--switch-to), -50%);
+    }
+
+    // Rounded
+    &-circle &__slider {
+        border-radius: 34px;
+
+        &:before {
+            border-radius: 50%;
+        }
+    }
+
+    // Disabled
+    &__input:disabled + &__slider {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+}

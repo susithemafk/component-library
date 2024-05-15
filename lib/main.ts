@@ -18,3 +18,6 @@ export type { AvatarProps } from './Avatar/Avatar'
 
 export { Dialog } from './Dialog/Dialog'
 export type { DialogProps } from './Dialog/Dialog'
+
+export { Switch } from './Switch/Switch'
+export type { SwitchProps } from './Switch/Switch'

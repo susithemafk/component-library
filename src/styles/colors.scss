@@ -9,19 +9,21 @@
     /* Secondary Colors */
     --color-secondary: #bab5fc;
     --color-secondary-dark: #{darken(#bab5fc, 20%)};
-    --color-secondary-light: #{lighten(#bab5fc, 5%)};
+    --color-secondary-light: #{lighten(#bab5fc, 7%)};
     --color-secondary-shadow: #{lighten(#bab5fc, 10%)};
     --color-secondary-button-text: #4e46b4;
 
     /* Dark Colors */
     --color-dark: #111111;
     --color-dark-dark: #{darken(#111111, 10%)};
-    --color-dark-light: #{lighten(#111111, 10%)};
+    --color-dark-light: #{lighten(#111111, 15%)};
     --color-dark-shadow: #{lighten(#111111, 75%)};
     --color-dark-button-text: #f7f7f7;
 
     /* Background Colors */
     --color-background: #f7f7f7;
+    --color-background-dark: #{darken(#f7f7f7, 10%)};
+    --color-background-light: #{lighten(#f7f7f7, 10%)};
 
     /* Text Colors All */
     --color-text-black-white: #111111;
@@ -30,6 +32,9 @@
 
     /* Text Placeholder */
     --color-text-placeholder: #b3b5b8;
+
+    /* Gray */
+    --color-gray: #ccc;
 }
 
 [data-theme='dark'] {
@@ -43,19 +48,21 @@
     /* Secondary Colors */
     --color-secondary: #bab5fc;
     --color-secondary-dark: #{darken(#bab5fc, 20%)};
-    --color-secondary-light: #{lighten(#bab5fc, 5%)};
+    --color-secondary-light: #{lighten(#bab5fc, 7%)};
     --color-secondary-shadow: #{darken(#bab5fc, 20%)};
     --color-secondary-button-text: #4e46b4;
 
     /* Dark Colors */
     --color-dark: #e4e4e4;
-    --color-dark-dark: #{darken(#e4e4e4, 10%)};
-    --color-dark-light: #{lighten(#e4e4e4, 30%)};
+    --color-dark-dark: #{lighten(#e4e4e4, 100%)};
+    --color-dark-light: #{darken(#e4e4e4, 30%)};
     --color-dark-shadow: #{darken(#e4e4e4, 50%)};
     --color-dark-button-text: #111111;
 
     /* Background Colors */
     --color-background: #1b1b1b;
+    --color-background-dark: #{darken(#1b1b1b, 10%)};
+    --color-background-light: #{lighten(#1b1b1b, 10%)};
 
     /* Text Colors All */
     --color-text-black-white: #f7f7f7;
@@ -64,4 +71,7 @@
 
     /* Text Placeholder */
     --color-text-placeholder: #b3b5b8;
+
+    /* Gray */
+    --color-gray: #ccc;
 }
