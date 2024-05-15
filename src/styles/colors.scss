@@ -22,6 +22,8 @@
 
     /* Background Colors */
     --color-background: #f7f7f7;
+    --color-background-dark: #{darken(#f7f7f7, 10%)};
+    --color-background-light: #{lighten(#f7f7f7, 10%)};
 
     /* Text Colors All */
     --color-text-black-white: #111111;
@@ -56,6 +58,8 @@
 
     /* Background Colors */
     --color-background: #1b1b1b;
+    --color-background-dark: #{darken(#1b1b1b, 10%)};
+    --color-background-light: #{lighten(#1b1b1b, 10%)};
 
     /* Text Colors All */
     --color-text-black-white: #f7f7f7;

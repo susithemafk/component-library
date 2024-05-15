@@ -57,5 +57,5 @@ export const ControlledDialog: StoryFunctional = (args: DialogProps) => {
 
 ControlledDialog.args = {
     children: <strong>On close dialog</strong>,
-    overlay: 'dark',
+    overlay: 'medium',
 }
