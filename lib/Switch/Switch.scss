@@ -5,7 +5,7 @@ $switch-variants: (primary, secondary, dark);
 @each $variant in $switch-variants {
     .switch-#{$variant} {
         --slider-dot-color: var(--color-#{$variant}-button-text);
-        --container-color: var(--color-#{$variant});
+        --container-color-checked: var(--color-#{$variant});
         --focus-shadow: var(--color-#{$variant}-shadow);
     }
 }
@@ -24,6 +24,16 @@ $switch-sizes: (small, medium, large);
 }
 
 .switch {
+    &-primary {
+        --container-color-unchecked: var(--color-primary-light);
+    }
+    &-secondary {
+        --container-color-unchecked: var(--color-secondary-light);
+    }
+    &-dark {
+        --container-color-unchecked: var(--color-dark-light);
+    }
+
     position: relative;
     display: inline-block;
     width: var(--switch-width);
@@ -44,9 +54,9 @@ $switch-sizes: (small, medium, large);
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: #ccc;
-        padding: 8px;
-        // transition: 0.4s;
+        background-color: var(--container-color-unchecked);
+        -webkit-transition: background-color 0.15s;
+        transition: background-color 0.15s;
 
         // Slider dot
         &:before {
@@ -58,14 +68,14 @@ $switch-sizes: (small, medium, large);
             top: 50%;
             transform: translate(var(--switch-from), -50%);
             background-color: var(--slider-dot-color);
-            // -webkit-transition: 0.4s;
-            // transition: 0.4s;
+            -webkit-transition: 0.3s;
+            transition: 0.3s;
         }
     }
 
     // Container when checked
     &__input:checked + &__slider {
-        background-color: var(--container-color);
+        background-color: var(--container-color-checked);
     }
 
     // Container when focused
