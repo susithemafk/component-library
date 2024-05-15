@@ -15,3 +15,6 @@ export type { InputProps } from './Input/Input'
 
 export { Avatar } from './Avatar/Avatar'
 export type { AvatarProps } from './Avatar/Avatar'
+
+export { Dialog } from './Dialog/Dialog'
+export type { DialogProps } from './Dialog/Dialog'
