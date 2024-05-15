@@ -27,6 +27,11 @@ export const Switch = (props: SwitchProps): JSX.Element => {
     const [isChecked, setIsChecked] = useState(false || defaultChecked)
 
     const handleToggle = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (disabled) {
+            alert('Try harder :D')
+            return
+        }
+
         const newValue = !isChecked
         setIsChecked(newValue)
         if (onChange) onChange(newValue, event)
