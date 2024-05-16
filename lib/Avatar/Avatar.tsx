@@ -24,21 +24,21 @@ export const Avatar = ({
     const getSizeClassName = () => {
         switch (size) {
             case 'small':
-                return 'avatar-size-small'
+                return 'avatar--size-small'
             case 'large':
-                return 'avatar-size-large'
+                return 'avatar--size-large'
             default:
-                return 'avatar-size-medium'
+                return 'avatar--size-medium'
         }
     }
 
     const classNames = [
         'avatar',
         getSizeClassName(),
-        shape === 'circle' ? 'avatar-shape-circle' : 'avatar-shape-square',
+        shape === 'circle' ? 'avatar--shape-circle' : 'avatar--shape-square',
         className,
-        shadow ? 'avatar-shadow' : '',
-        border ? 'avatar-border' : '',
+        shadow ? 'avatar--shadow' : '',
+        border ? 'avatar--border' : '',
     ]
         .filter(Boolean)
         .join(' ')

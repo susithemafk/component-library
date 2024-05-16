@@ -1,3 +1,5 @@
+@import '../../src/styles/mixins.scss';
+
 /**
   * Variants
   */
@@ -24,11 +26,13 @@
   */
 $checkbox-sizes: (small, medium, large);
 @each $size in $checkbox-sizes {
-    .checkbox-size-#{$size} {
-        --checkbox-check-size: calc(var(--font-size-#{$size}) * 1.12);
-        --checkbox-size: calc(var(--font-size-#{$size}) * 1.5);
-        --checkbox-font-size: var(--font-size-#{$size});
-        --checkbox-border-radius: var(--border-radius-#{$size});
+    .checkbox {
+        &--size-#{$size} {
+            --checkbox-check-size: calc(var(--font-size-#{$size}) * 1.12);
+            --checkbox-size: calc(var(--font-size-#{$size}) * 1.5);
+            --checkbox-font-size: var(--font-size-#{$size});
+            --checkbox-border-radius: var(--border-radius-#{$size});
+        }
     }
 }
 
@@ -76,7 +80,7 @@ $checkbox-sizes: (small, medium, large);
 
         // Focus input
         &:focus {
-            box-shadow: var(--focus-color) var(--focus-outline);
+            @include focused(var(--focus-color));
         }
 
         // Disabled
@@ -95,7 +99,8 @@ $checkbox-sizes: (small, medium, large);
         color: var(--color-text-black-white);
     }
 
-    &.checkbox-reversed {
+    // Text on the left
+    &--reversed {
         .checkbox__input {
             order: 2;
         }

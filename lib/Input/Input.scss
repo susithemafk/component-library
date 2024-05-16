@@ -1,7 +1,8 @@
+@import '../../src/styles/mixins.scss';
+
 /**
   * Variants
   */
-
 $input-variants: (primary, secondary, dark);
 @each $variant in $input-variants {
     .input-#{$variant} {
@@ -13,13 +14,14 @@ $input-variants: (primary, secondary, dark);
 /**
   * Sizes
   */
-
 $input-sizes: (small, medium, large);
 @each $size in $input-sizes {
-    .input-size-#{$size} {
-        --input-font-size: var(--font-size-#{$size});
-        --input-padding: var(--padding-#{$size});
-        --input-border-radius: var(--border-radius-#{$size});
+    .input {
+        &--size-#{$size} {
+            --input-font-size: var(--font-size-#{$size});
+            --input-padding: var(--padding-#{$size});
+            --input-border-radius: var(--border-radius-#{$size});
+        }
     }
 }
 
@@ -45,7 +47,7 @@ $input-sizes: (small, medium, large);
         box-shadow: inset 0 0 2px 0 var(--input-border-color);
 
         &:focus {
-            box-shadow: var(--input-focus-border-color) var(--focus-outline);
+            @include focused(var(--input-focus-border-color));
         }
     }
 

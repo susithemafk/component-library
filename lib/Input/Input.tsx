@@ -29,8 +29,8 @@ export const Input = (props: InputProps): JSX.Element => {
 
     const getClassName = () => {
         const classes: string[] = []
-        if (inputSize) classes.push(`input-size-${inputSize}`)
         if (variant) classes.push(`input-${variant}`)
+        if (inputSize) classes.push(`input--size-${inputSize}`)
         if (className) classes.push(className)
         if (labelUp) classes.push('input--label-up')
         return classes.join(' ')

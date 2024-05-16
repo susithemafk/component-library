@@ -27,8 +27,8 @@ export const Checkbox = (props: CheckboxProps): JSX.Element => {
     const getClassName = () => {
         const classes: string[] = []
         if (variant) classes.push(`checkbox-${variant}`)
-        if (cbSize) classes.push(`checkbox-size-${cbSize}`)
-        if (reversed) classes.push('checkbox-reversed')
+        if (cbSize) classes.push(`checkbox--size-${cbSize}`)
+        if (reversed) classes.push('checkbox--reversed')
         if (className) classes.push(className)
         return classes.join(' ')
     }

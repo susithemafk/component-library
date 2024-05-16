@@ -11,3 +11,7 @@ body {
     color: var(--color-text-black-white);
     background-color: var(--color-background);
 }
+
+*::placeholder {
+    color: var(--color-text-placeholder);
+}

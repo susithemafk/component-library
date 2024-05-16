@@ -40,8 +40,8 @@ export const Switch = (props: SwitchProps): JSX.Element => {
     const getClassName = () => {
         const c = ['switch']
         if (variant) c.push(`switch-${variant}`)
-        if (size) c.push(`switch-size-${size}`)
-        circle ? c.push(`switch-circle`) : c.push(`switch-rectangle`)
+        if (size) c.push(`switch--size-${size}`)
+        circle ? c.push(`switch--shape-circle`) : c.push(`switch--shape-rectangle`)
         if (className) c.push(className)
         return c.join(' ')
     }

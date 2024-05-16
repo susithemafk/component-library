@@ -1,3 +1,5 @@
+@import '../../src/styles/mixins.scss';
+
 /**
  * Variants
  */
@@ -42,7 +44,7 @@
     }
 
     &:focus {
-        box-shadow: var(--focus-shadow) var(--focus-outline);
+        @include focused(var(--focus-shadow));
     }
 
     .scl-loader {
@@ -55,23 +57,23 @@
  */
 $btn-sizes: (small, medium, large);
 @each $size in $btn-sizes {
-    .btn-size-#{$size} {
-        font-size: var(--font-size-#{$size});
-        padding: var(--padding-#{$size}) calc(var(--padding-#{$size}) * 2);
+    .btn {
+        &--size-#{$size} {
+            font-size: var(--font-size-#{$size});
+            padding: var(--padding-#{$size}) calc(var(--padding-#{$size}) * 2);
+        }
     }
 }
 
-/**
- * Rounded
- */
-.btn-rounded {
-    border-radius: 1rem;
-}
+.btn {
+    // Rounded
+    &--rounded {
+        border-radius: 1rem;
+    }
 
-/**
- * Disabled
- */
-.btn:disabled {
-    cursor: not-allowed;
-    opacity: 0.5;
+    // Disabled
+    &:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
 }

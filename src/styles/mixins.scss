@@ -1,0 +1,6 @@
+@mixin focused($color) {
+    outline: 0 none;
+    outline-offset: 0;
+    transition: box-shadow 0.2s;
+    box-shadow: $color var(--focus-outline);
+}

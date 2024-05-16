@@ -1,3 +1,5 @@
+@import '../../src/styles/mixins.scss';
+
 /**
   * Variants
   */
@@ -15,11 +17,13 @@ $switch-variants: (primary, secondary, dark);
   */
 $switch-sizes: (small, medium, large);
 @each $size in $switch-sizes {
-    .switch-size-#{$size} {
-        --switch-width: var(--switch-width-#{$size});
-        --switch-height: var(--switch-height-#{$size});
-        --switch-from: 4px;
-        --switch-to: calc(var(--switch-width-#{$size}) / 2);
+    .switch {
+        &--size-#{$size} {
+            --switch-width: var(--switch-width-#{$size});
+            --switch-height: var(--switch-height-#{$size});
+            --switch-from: 4px;
+            --switch-to: calc(var(--switch-width-#{$size}) / 2);
+        }
     }
 }
 
@@ -80,7 +84,7 @@ $switch-sizes: (small, medium, large);
 
     // Container when focused
     &__input:focus + &__slider {
-        box-shadow: var(--focus-outline) var(--focus-shadow);
+        @include focused(var(--focus-shadow));
     }
 
     // Slider dot when checked
@@ -91,11 +95,20 @@ $switch-sizes: (small, medium, large);
     }
 
     // Rounded
-    &-circle &__slider {
+    &--shape-circle &__slider {
         border-radius: 34px;
 
         &:before {
             border-radius: 50%;
+        }
+    }
+
+    // Rectangle
+    &--shape-rectangle &__slider {
+        border-radius: 0;
+
+        &:before {
+            border-radius: 0;
         }
     }
 

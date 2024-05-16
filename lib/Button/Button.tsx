@@ -34,8 +34,8 @@ export const Button = (props: ButtonProps): JSX.Element => {
     const getClassName = () => {
         const c = ['btn']
         if (variant) c.push(`btn-${variant}`)
-        if (size) c.push(`btn-size-${size}`)
-        if (rounded) c.push(`btn-rounded`)
+        if (size) c.push(`btn--size-${size}`)
+        if (rounded) c.push(`btn--rounded`)
         if (className) c.push(className)
         return c.join(' ')
     }
