@@ -16,7 +16,7 @@ jobs:
                   node-version: 20
             - run: npm install
             - run: npm ci
-            - run: npm test
+            - run: npm run build
 
     # publish to npm
     publish-npm:
@@ -30,7 +30,6 @@ jobs:
                   node-version: 20
                   registry-url: https://registry.npmjs.org/
             - run: npm install
-            - run: npm run build
             - run: npm publish
               env:
                   NODE_AUTH_TOKEN: ${{secrets.PUBLISH_NPM_TOKEN}}
@@ -50,7 +49,6 @@ jobs:
                   node-version: 20
                   registry-url: https://npm.pkg.github.com/
             - run: npm install
-            - run: npm run build
             - run: npm publish
               env:
                   NODE_AUTH_TOKEN: ${{secrets.PUBLISH_GITHUB_TOKEN}}
