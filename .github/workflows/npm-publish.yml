@@ -1,0 +1,56 @@
+name: Publish to NPM and GPR
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        if: contains(github.event.head_commit.message, '[publish]')
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+            - run: npm install
+            - run: npm ci
+            - run: npm test
+
+    # publish to npm
+    publish-npm:
+        needs: build
+        runs-on: ubuntu-latest
+        if: contains(github.event.head_commit.message, '[publish]')
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  registry-url: https://registry.npmjs.org/
+            - run: npm install
+            - run: npm run build
+            - run: npm publish
+              env:
+                  NODE_AUTH_TOKEN: ${{secrets.PUBLISH_NPM_TOKEN}}
+
+    # publish to gpr
+    publish-gpr:
+        needs: build
+        runs-on: ubuntu-latest
+        if: contains(github.event.head_commit.message, '[publish]')
+        permissions:
+            contents: read
+            packages: write
+        steps:
+            - uses: actions/checkout@v4
+            - uses: actions/setup-node@v4
+              with:
+                  node-version: 20
+                  registry-url: https://npm.pkg.github.com/
+            - run: npm install
+            - run: npm run build
+            - run: npm publish
+              env:
+                  NODE_AUTH_TOKEN: ${{secrets.PUBLISH_GITHUB_TOKEN}}
