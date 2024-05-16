@@ -18,13 +18,6 @@
             "require": "./dist/style.css"
         }
     },
-    "publishConfig": {
-        "@susithemafk:registry": "https://npm.pkg.github.com"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/susithemafk/component-library.git"
-    },
     "sideEffects": false,
     "scripts": {
         "dev": "vite",
