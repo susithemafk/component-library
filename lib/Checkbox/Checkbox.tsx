@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Checkbox.scss'
 
-export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
+export interface CheckboxProps
+    extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
     label?: React.ReactNode | string
     variant?: 'primary' | 'secondary' | 'dark'
     checked?: boolean
@@ -9,9 +10,10 @@ export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElemen
     reversed?: boolean
     disabled?: boolean
     className?: string
+    onChange(value: boolean): void
 }
 
-export const Checkbox = (props: CheckboxProps): JSX.Element => {
+export const Checkbox: React.FC<CheckboxProps> = (props: CheckboxProps): React.JSX.Element => {
     const {
         label,
         variant = 'primary',
@@ -20,9 +22,9 @@ export const Checkbox = (props: CheckboxProps): JSX.Element => {
         reversed = false,
         disabled,
         className,
+        onChange,
         ...restProps
     } = props
-    const [isChecked, setIsChecked] = useState(checked)
 
     const getClassName = () => {
         const classes: string[] = []
@@ -37,9 +39,8 @@ export const Checkbox = (props: CheckboxProps): JSX.Element => {
         <label className={`checkbox ${getClassName()}`}>
             <input
                 type="checkbox"
-                checked={isChecked}
-                onChange={() => setIsChecked((prev) => !prev)}
-                defaultChecked={checked}
+                checked={checked}
+                onChange={!disabled ? (e) => onChange(e.target.checked) : () => console.log('Try harder :D')}
                 disabled={disabled}
                 className="checkbox__input"
                 {...restProps}
