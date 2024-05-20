@@ -1,7 +1,10 @@
 .split {
     display: grid;
     grid-template-columns: 260px auto;
-	margin-bottom: 1.5rem;
+
+    &:not(:last-child) {
+        margin-bottom: 1.5rem;
+    }
 }
 
 .grid {
