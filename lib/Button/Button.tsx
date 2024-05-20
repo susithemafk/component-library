@@ -45,7 +45,7 @@ export const Button = (props: ButtonProps): JSX.Element => {
             <button
                 className={getClassName()}
                 disabled={disabled}
-                onClick={!disabled ? onClick : () => console.log('Try harder:D')}>
+                onClick={!disabled ? onClick : () => alert('Try harder:D')}>
                 {!loading && children}
                 {loading && <div className="scl-loader"></div>}
             </button>

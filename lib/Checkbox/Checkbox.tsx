@@ -10,7 +10,7 @@ export interface CheckboxProps
     reversed?: boolean
     disabled?: boolean
     className?: string
-    onChange(value: boolean): void
+    onChange: (value: boolean, event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 export const Checkbox: React.FC<CheckboxProps> = (props: CheckboxProps): React.JSX.Element => {
@@ -39,8 +39,10 @@ export const Checkbox: React.FC<CheckboxProps> = (props: CheckboxProps): React.J
         <label className={`checkbox ${getClassName()}`}>
             <input
                 type="checkbox"
-                checked={checked}
-                onChange={!disabled ? (e) => onChange(e.target.checked) : () => console.log('Try harder :D')}
+                checked={!disabled && checked}
+                onChange={
+                    !disabled ? (e) => onChange(e.target.checked, e) : () => alert('Try harder :D')
+                }
                 disabled={disabled}
                 className="checkbox__input"
                 {...restProps}

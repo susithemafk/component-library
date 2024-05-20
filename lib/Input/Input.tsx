@@ -45,9 +45,7 @@ export const Input = (props: InputProps): JSX.Element => {
                     id={id}
                     value={value}
                     onChange={
-                        !disabled
-                            ? (e) => setValue(e.target.value)
-                            : () => console.log('Try harder:D')
+                        !disabled ? (e) => setValue(e.target.value) : () => alert('Try harder:D')
                     }
                     disabled={disabled}
                     className="input__input"
