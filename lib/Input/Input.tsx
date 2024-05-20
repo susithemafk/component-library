@@ -44,7 +44,11 @@ export const Input = (props: InputProps): JSX.Element => {
                     type="text"
                     id={id}
                     value={value}
-                    onChange={(e) => setValue(e.target.value)}
+                    onChange={
+                        !disabled
+                            ? (e) => setValue(e.target.value)
+                            : () => console.log('Try harder:D')
+                    }
                     disabled={disabled}
                     className="input__input"
                     aria-label={id} // dulezity pokud je label prazdny
