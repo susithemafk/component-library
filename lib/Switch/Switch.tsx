@@ -1,16 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './Switch.scss'
 
 export interface SwitchProps
     extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value' | 'size'> {
-    onChange?: (value: boolean, event: React.ChangeEvent<HTMLInputElement>) => void
+    onChange: (value: boolean, event: React.ChangeEvent<HTMLInputElement>) => void
     className?: string
     variant?: 'primary' | 'secondary' | 'dark'
     size?: 'small' | 'medium' | 'large'
     circle?: boolean
     id: string
     disabled?: boolean
-    defaultChecked?: boolean
+    checked?: boolean
 }
 
 export const Switch = (props: SwitchProps): JSX.Element => {
@@ -21,21 +21,9 @@ export const Switch = (props: SwitchProps): JSX.Element => {
         circle = true,
         disabled,
         id,
-        defaultChecked,
+        checked,
         onChange,
     } = props
-    const [isChecked, setIsChecked] = useState(false || defaultChecked)
-
-    const handleToggle = (event: React.ChangeEvent<HTMLInputElement>) => {
-        if (disabled) {
-            alert('Try harder :D')
-            return
-        }
-
-        const newValue = !isChecked
-        setIsChecked(newValue)
-        if (onChange) onChange(newValue, event)
-    }
 
     const getClassName = () => {
         const c = ['switch']
@@ -53,8 +41,10 @@ export const Switch = (props: SwitchProps): JSX.Element => {
                 className="switch__input"
                 type="checkbox"
                 disabled={disabled}
-                checked={isChecked}
-                onChange={handleToggle}
+                checked={!disabled && checked}
+                onChange={
+                    !disabled ? (e) => onChange(e.target.checked, e) : () => alert('Try harder :D')
+                }
             />
             <span className="switch__slider" />
         </label>
