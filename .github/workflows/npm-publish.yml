@@ -6,6 +6,7 @@ on:
             - main
 
 jobs:
+    # build must pass
     build:
         runs-on: ubuntu-latest
         if: contains(github.event.head_commit.message, '[publish]')
@@ -29,7 +30,7 @@ jobs:
               with:
                   node-version: 20
                   registry-url: https://registry.npmjs.org/
-            - run: npm install
+            - run: npm ci
             - run: npm run build
             - run: npm publish
               env:
@@ -49,7 +50,6 @@ jobs:
               with:
                   node-version: 20
                   registry-url: https://npm.pkg.github.com/
-            - run: npm install
             - run: npm ci
             - run: npm run build
             - run: npm publish
