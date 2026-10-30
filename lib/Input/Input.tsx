@@ -22,10 +22,14 @@ export const Input = (props: InputProps): JSX.Element => {
         className,
         id,
         labelUp = false,
+        value,
+        defaultValue,
+        onChange,
         ...restProps
     } = props
 
-    const [value, setValue] = useState('')
+    const [internalValue, setInternalValue] = useState(defaultValue ?? '')
+    const inputValue = value ?? internalValue
 
     const getClassName = () => {
         const classes: string[] = []
@@ -43,15 +47,18 @@ export const Input = (props: InputProps): JSX.Element => {
                 <input
                     type="text"
                     id={id}
-                    value={value}
-                    onChange={
-                        !disabled ? (e) => setValue(e.target.value) : () => alert('Try harder:D')
-                    }
+                    {...restProps}
+                    value={inputValue}
+                    onChange={(e) => {
+                        if (value === undefined) {
+                            setInternalValue(e.target.value)
+                        }
+                        onChange?.(e)
+                    }}
                     disabled={disabled}
                     className="input__input"
                     aria-label={id} // dulezity pokud je label prazdny
                     placeholder={placeholder}
-                    {...restProps}
                 />
             </label>
         </div>
