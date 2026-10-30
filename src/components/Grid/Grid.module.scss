@@ -1,0 +1,14 @@
+.split {
+    display: grid;
+    grid-template-columns: 260px auto;
+
+    &:not(:last-child) {
+        margin-bottom: 1.5rem;
+    }
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
