@@ -1,9 +1,13 @@
 name: Publish to NPM and GPR
 
 on:
-    push:
-        branches:
-            - main
+    release:
+        types: [published]
+    workflow_dispatch: # run this workflow manually from Actions tab
+
+permissions:
+    contents: read
+    packages: write
 
 jobs:
     # build must pass
