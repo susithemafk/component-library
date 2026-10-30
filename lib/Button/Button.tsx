@@ -9,7 +9,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
     rounded?: boolean
     disabled?: boolean
     loading?: boolean
-    onClick?: (...args: any[]) => any
+    onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
 }
 
 export const Button = (props: ButtonProps): JSX.Element => {
