@@ -77,6 +77,11 @@ $switch-sizes: (small, medium, large);
         }
     }
 
+    &__label {
+        margin-left: calc(var(--switch-width) + 0.5rem);
+        white-space: nowrap;
+    }
+
     // Container when checked
     &__input:checked + &__slider {
         background-color: var(--container-color-checked);
