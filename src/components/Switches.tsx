@@ -13,7 +13,7 @@ const Switches = (): JSX.Element => {
                 variant={s.variant}
                 circle={s.circle}
                 id={s.id}
-                checked={checked}
+                defaultChecked={checked}
                 disabled={s.disabled}
                 onChange={setChecked}>
                 {s.children}
