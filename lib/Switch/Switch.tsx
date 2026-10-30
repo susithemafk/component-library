@@ -3,14 +3,14 @@ import './Switch.scss'
 
 export interface SwitchProps
     extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value' | 'size'> {
-    onChange: (value: boolean, event: React.ChangeEvent<HTMLInputElement>) => void
+    onChange?: (value: boolean, event: React.ChangeEvent<HTMLInputElement>) => void
     className?: string
     variant?: 'primary' | 'secondary' | 'dark'
     size?: 'small' | 'medium' | 'large'
     circle?: boolean
     id: string
     disabled?: boolean
-    checked?: boolean
+    defaultChecked?: boolean
 }
 
 export const Switch = (props: SwitchProps): JSX.Element => {
@@ -21,7 +21,7 @@ export const Switch = (props: SwitchProps): JSX.Element => {
         circle = true,
         disabled,
         id,
-        checked,
+        defaultChecked,
         onChange,
     } = props
 
@@ -41,10 +41,8 @@ export const Switch = (props: SwitchProps): JSX.Element => {
                 className="switch__input"
                 type="checkbox"
                 disabled={disabled}
-                checked={!disabled && checked}
-                onChange={
-                    !disabled ? (e) => onChange(e.target.checked, e) : () => alert('Try harder :D')
-                }
+                defaultChecked={defaultChecked}
+                onChange={onChange ? (e) => onChange(e.target.checked, e) : undefined}
             />
             <span className="switch__slider" />
         </label>

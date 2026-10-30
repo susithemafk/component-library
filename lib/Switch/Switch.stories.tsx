@@ -60,7 +60,7 @@ export const Large: Story = {
     },
 }
 
-export const Checked: Story = {
+export const DefaultChecked: Story = {
     args: {
         id: 'checked',
         defaultChecked: true,
