@@ -20,11 +20,11 @@ export const Dialog: React.FC<DialogProps> = ({
     const getClassName = () => {
         const classes = ['dialog']
         if (open) classes.push('open')
-            if (overlay) {
-                if (overlay === 'none') classes.push('overlay-none')
-                if (overlay === 'medium') classes.push('overlay-medium')
-                if (overlay === 'dark') classes.push('overlay-dark')
-            }
+        if (overlay) {
+            if (overlay === 'none') classes.push('overlay-none')
+            if (overlay === 'medium') classes.push('overlay-medium')
+            if (overlay === 'dark') classes.push('overlay-dark')
+        }
         if (className) classes.push(className)
         return classes.join(' ')
     }
@@ -44,9 +44,13 @@ export const Dialog: React.FC<DialogProps> = ({
         <div className={getClassName()} {...restProps}>
             <div className="dialog__wrapper">
                 <div className="dialog__content">{children}</div>
-                <span className="dialog__close" onClick={(e) => handleOutsideClick(e)}>
+                <button
+                    type="button"
+                    aria-label="Close dialog"
+                    className="dialog__close"
+                    onClick={(e) => handleOutsideClick(e)}>
                     &#10005;
-                </span>
+                </button>
             </div>
             <div className="dialog__overlay" onClick={(e) => handleOutsideClick(e)}></div>
         </div>

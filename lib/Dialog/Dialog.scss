@@ -34,6 +34,8 @@
     }
 
     &__close {
+        background: unset;
+        border: unset;
         position: absolute;
         top: 8px;
         right: 8px;
