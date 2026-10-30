@@ -9,10 +9,6 @@
     align-items: center;
     z-index: 10;
 
-    &:not(.open) {
-        display: none;
-    }
-
     &__overlay {
         background-color: var(--overlay-color);
         position: fixed;

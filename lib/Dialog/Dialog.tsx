@@ -1,5 +1,6 @@
-import React, { SyntheticEvent } from 'react'
+import React, { useEffect } from 'react'
 import './Dialog.scss'
+import { createPortal } from 'react-dom'
 
 export interface DialogProps {
     children: React.ReactNode
@@ -7,6 +8,7 @@ export interface DialogProps {
     open?: boolean
     overlay?: 'none' | 'medium' | 'dark'
     onClose?: () => void
+    ariaLabel?: string
 }
 
 export const Dialog: React.FC<DialogProps> = ({
@@ -15,6 +17,7 @@ export const Dialog: React.FC<DialogProps> = ({
     open = false,
     overlay = 'medium',
     onClose,
+    ariaLabel = 'Dialog',
     ...restProps
 }) => {
     const getClassName = () => {
@@ -29,30 +32,41 @@ export const Dialog: React.FC<DialogProps> = ({
         return classes.join(' ')
     }
 
-    const handleOutsideClick = (e: SyntheticEvent<HTMLDivElement | HTMLSpanElement>) => {
-        if (
-            typeof onClose === 'function' &&
-            ((e.target as Element).className === 'dialog__overlay' ||
-                (e.target as Element).className === 'dialog__close')
-        ) {
-            // close
-            onClose()
-        }
-    }
+    // escape key close
+    useEffect(() => {
+        if (!open) return
 
-    return (
-        <div className={getClassName()} {...restProps}>
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') onClose?.()
+        }
+
+        window.addEventListener('keydown', handleKeyDown)
+        return () => window.removeEventListener('keydown', handleKeyDown)
+    }, [open, onClose])
+
+    const dialog = (
+        <div
+            className={getClassName()}
+            role="dialog"
+            aria-modal="true"
+            aria-label={ariaLabel}
+            {...restProps}>
             <div className="dialog__wrapper">
                 <div className="dialog__content">{children}</div>
                 <button
                     type="button"
                     aria-label="Close dialog"
                     className="dialog__close"
-                    onClick={(e) => handleOutsideClick(e)}>
+                    onClick={onClose}>
                     &#10005;
                 </button>
             </div>
-            <div className="dialog__overlay" onClick={(e) => handleOutsideClick(e)}></div>
+            <div className="dialog__overlay" onClick={onClose}></div>
         </div>
     )
+
+    // don't render if not open
+    if (!open) return null
+    // render to body (portal)
+    return typeof document !== 'undefined' ? createPortal(dialog, document.body) : null
 }
