@@ -5,19 +5,19 @@ export interface CheckboxProps
     extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
     label?: React.ReactNode | string
     variant?: 'primary' | 'secondary' | 'dark'
-    checked?: boolean
+    defaultChecked?: boolean
     cbSize?: 'small' | 'medium' | 'large'
     reversed?: boolean
     disabled?: boolean
     className?: string
-    onChange: (value: boolean, event: React.ChangeEvent<HTMLInputElement>) => void
+    onChange?: (value: boolean, event: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 export const Checkbox: React.FC<CheckboxProps> = (props: CheckboxProps): React.JSX.Element => {
     const {
         label,
         variant = 'primary',
-        checked = false,
+        defaultChecked: checked = false,
         cbSize = 'medium',
         reversed = false,
         disabled,
@@ -39,10 +39,8 @@ export const Checkbox: React.FC<CheckboxProps> = (props: CheckboxProps): React.J
         <label className={`checkbox ${getClassName()}`}>
             <input
                 type="checkbox"
-                checked={!disabled && checked}
-                onChange={
-                    !disabled ? (e) => onChange(e.target.checked, e) : () => alert('Try harder :D')
-                }
+                defaultChecked={!disabled && checked}
+                onChange={onChange ? (e) => onChange(e.target.checked, e) : undefined}
                 disabled={disabled}
                 className="checkbox__input"
                 {...restProps}

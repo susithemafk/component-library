@@ -13,14 +13,14 @@ type Story = StoryObj<typeof Checkbox>
 export const Default: Story = {
     args: {
         label: 'Default checkbox',
-        checked: true,
+        defaultChecked: true,
     },
 }
 
 export const Primary: Story = {
     args: {
         label: 'Primary checkbox',
-        checked: true,
+        defaultChecked: true,
         variant: 'primary',
     },
 }
@@ -28,7 +28,7 @@ export const Primary: Story = {
 export const Secondary: Story = {
     args: {
         label: 'Secondary checkbox',
-        checked: true,
+        defaultChecked: true,
         variant: 'secondary',
     },
 }
@@ -36,7 +36,7 @@ export const Secondary: Story = {
 export const Dark: Story = {
     args: {
         label: 'Dark checkbox',
-        checked: true,
+        defaultChecked: true,
         variant: 'dark',
     },
 }
@@ -44,7 +44,7 @@ export const Dark: Story = {
 export const Small: Story = {
     args: {
         label: 'Small checkbox',
-        checked: true,
+        defaultChecked: true,
         cbSize: 'small',
     },
 }
@@ -52,7 +52,7 @@ export const Small: Story = {
 export const Medium: Story = {
     args: {
         label: 'Medium checkbox',
-        checked: true,
+        defaultChecked: true,
         cbSize: 'medium',
     },
 }
@@ -60,7 +60,7 @@ export const Medium: Story = {
 export const Large: Story = {
     args: {
         label: 'Large checkbox',
-        checked: true,
+        defaultChecked: true,
         cbSize: 'large',
     },
 }
@@ -68,7 +68,7 @@ export const Large: Story = {
 export const Disabled: Story = {
     args: {
         label: 'Disabled checkbox',
-        checked: true,
+        defaultChecked: true,
         disabled: true,
     },
 }
@@ -76,7 +76,7 @@ export const Disabled: Story = {
 export const Reversed: Story = {
     args: {
         label: 'Reversed checkbox',
-        checked: true,
+        defaultChecked: true,
         reversed: true,
     },
 }
@@ -84,20 +84,20 @@ export const Reversed: Story = {
 export const Unchecked: Story = {
     args: {
         label: 'Unchecked checkbox',
-        checked: false,
+        defaultChecked: false,
     },
 }
 
 export const NoLabel: Story = {
     args: {
-        checked: true,
+        defaultChecked: true,
     },
 }
 
 export const Custom: Story = {
     args: {
         label: 'Custom checkbox',
-        checked: true,
+        defaultChecked: true,
         className: 'custom-class',
     },
 }
