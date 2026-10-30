@@ -13,7 +13,7 @@ const Checkboxes = (): JSX.Element => {
                 cbSize={button.cbSize}
                 variant={button.variant}
                 disabled={button.disabled}
-                checked={checked}
+                defaultChecked={checked}
                 reversed={button.reversed}
                 onChange={setChecked}
             />
