@@ -9,6 +9,7 @@ export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElemen
     rounded?: boolean
     disabled?: boolean
     loading?: boolean
+    type?: React.ButtonHTMLAttributes<HTMLButtonElement>['type']
     onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
 }
 
@@ -22,6 +23,7 @@ export const Button = (props: ButtonProps): JSX.Element => {
         variant = 'primary',
         size = 'medium',
         rounded = false,
+        type = 'button',
         disabled,
         loading,
         onClick,
@@ -45,6 +47,7 @@ export const Button = (props: ButtonProps): JSX.Element => {
             <button
                 className={getClassName()}
                 disabled={disabled}
+                type={type}
                 onClick={!disabled ? onClick : () => alert('Try harder:D')}>
                 {!loading && children}
                 {loading && <div className="scl-loader"></div>}
